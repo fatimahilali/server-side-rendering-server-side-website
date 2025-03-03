@@ -33,12 +33,19 @@ app.engine('liquid', engine.express());
 // Let op: de browser kan deze bestanden niet rechtstreeks laden (zoals voorheen met HTML bestanden)
 app.set('views', './views')
 
-// Maak een GET route voor de index (meestal doe je dit in de root, als /)
+
+
 app.get('/', async function (request, response) {
-   // Render index.liquid uit de Views map
-   // Geef hier eventueel data aan mee
-   response.render('index.liquid')
-})
+  // Haal de data op van de Directus API
+  const apiResponse = await fetch('https://fdnd-agency.directus.app/items/fabrique_art_objects');
+  const apiResponseJSON = await apiResponse.json();
+
+  // Render de Liquid-template en geef de data mee
+  response.render('index.liquid', { artworks: apiResponseJSON.data });
+});
+
+
+
 
 // Maak een POST route voor de index; hiermee kun je bijvoorbeeld formulieren afvangen
 // Hier doen we nu nog niets mee, maar je kunt er mee spelen als je wilt
@@ -57,3 +64,4 @@ app.listen(app.get('port'), function () {
   // Toon een bericht in de console en geef het poortnummer door
   console.log(`Application started on http://localhost:${app.get('port')}`)
 })
+
