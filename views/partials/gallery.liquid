@@ -1,0 +1,15 @@
+<section>
+  <!-- Verborgen koptekst voor toegankelijkheid -->
+  <h2 class="visually-hidden">Galerij van Qatar Museums</h2>
+
+  <!-- Lijst van galerijafbeeldingen -->
+  <ul class="gallery">
+    {% for artwork in artworks %}
+      <!-- Elke afbeelding in een lijstitem -->
+      <li class="image-card">
+        <!-- Dynamische afbeelding uit de artworks lijst -->
+        <img src="https://fdnd-agency.directus.app/assets/{{ artwork.image }}" alt="Afbeelding uit de galerij">
+      </li>
+    {% endfor %}
+  </ul>
+</section>

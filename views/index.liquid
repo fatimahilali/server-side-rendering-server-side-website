@@ -1,13 +1,3 @@
 {% render 'views/header.liquid' %}
 {% render 'partials/head.liquid' %}
-
-<section>
-  <h2>Fabrique Art Objects</h2>
-  <div class="gallery">
-    {% for artwork in artworks %}
-      <div class="image-card">
-        <img src="https://fdnd-agency.directus.app/assets/{{ artwork.image }}" alt="">
-      </div>
-    {% endfor %}
-  </div>
-</section>
+{% render 'partials/gallery.liquid', artworks: artworks %}

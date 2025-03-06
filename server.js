@@ -6,18 +6,6 @@ import express from 'express'
 import { Liquid } from 'liquidjs';
 
 
-console.log('Hieronder moet je waarschijnlijk nog wat veranderen')
-// Doe een fetch naar de data die je nodig hebt
-// const apiResponse = await fetch('...')
-
-// Lees van de response van die fetch het JSON object in, waar we iets mee kunnen doen
-// const apiResponseJSON = await apiResponse.json()
-
-// Controleer eventueel de data in je console
-// (Let op: dit is _niet_ de console van je browser, maar van NodeJS, in je terminal)
-// console.log(apiResponseJSON)
-
-
 // Maak een nieuwe Express applicatie aan, waarin we de server configureren
 const app = express()
 
@@ -34,7 +22,7 @@ app.engine('liquid', engine.express());
 app.set('views', './views')
 
 
-
+// Route-handler voor de hoofdpagina ('/')
 app.get('/', async function (request, response) {
   // Haal de data op van de Directus API
   const apiResponse = await fetch('https://fdnd-agency.directus.app/items/fabrique_art_objects');
@@ -43,7 +31,6 @@ app.get('/', async function (request, response) {
   // Render de Liquid-template en geef de data mee
   response.render('index.liquid', { artworks: apiResponseJSON.data });
 });
-
 
 
 
