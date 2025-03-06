@@ -1,9 +1,4 @@
 /* 
-  bron:https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-rows
- */
-
-
-/* 
    Algemene stijlen
  */
 
@@ -15,9 +10,7 @@
 }
 
 body {
-
-    background: var(--background-color);
-    background: radial-gradient(125% 125% at 50% 10%, var(--gradient-start) 40%, var(--gradient-end) 100%);
+    background: linear-gradient(to bottom, #FBF4F6, #FFFFFF);
     font-family: var(--font-family);
     font-size: var(--font-size-base);
 }
@@ -120,7 +113,7 @@ De navigatie voor mobiel is tijdelijk uitgeschakeld.
 */
 .gallery {
     display: grid;
-    grid-template-columns:1fr;
+    grid-template-columns: 1fr;
     /* Mobiel: 1 kolommen */
     grid-auto-rows: minmax(12rem, auto);
     /* Dynamische rijhoogte */
@@ -131,6 +124,9 @@ De navigatie voor mobiel is tijdelijk uitgeschakeld.
 }
 
 /* Desktop galerij aanpassing */
+/* 
+  bron:https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-rows
+ */
 
 /* Desktop layout */
 @media (min-width: 1024px) {
@@ -142,6 +138,7 @@ De navigatie voor mobiel is tijdelijk uitgeschakeld.
         gap: 1rem;
         padding: 5rem;
         max-width: 75rem;
+
     }
 }
 
@@ -161,22 +158,51 @@ De navigatie voor mobiel is tijdelijk uitgeschakeld.
     overflow: hidden;
     border-radius: var(--border-radius);
     border: 2px solid var(--background-color);
-    border-bottom: 2px solid var(--border-light);
-    border-right: 2px solid var(--border-dark);
-    transition: transform 0.3s ease;
+    transition: all .3s ease-in-out;
+    perspective: 4000px;
+
 }
 
-/* Hover effect */
-.image-card:hover {
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: var(--hover-shadow);
+
+/* bron van deze stukje code https://www.youtube.com/watch?v=UmaygEDtz9g&list=WL&index=1&t=481s*/
+
+
+/* Niet-gehoverde afbeeldingen vervagen en verkleinen op desktop*/
+
+@media (min-width: 1024px) {
+    .gallery:hover .image-card:not(:hover) img {
+        filter: grayscale(50%) blur(2px); /* Maakt afbeelding gedeeltelijk grijs en wazig */
+        transform: scale(0.95); /* Verkleint afbeelding lichtjes */
+        transition: transform 0.4s ease, filter 0.4s ease; /*  overgang */
+    }
+}
+
+
+/* Gehoverde afbeeldingen worden groter en krijgen een 3D-tilt */
+.gallery:hover .image-card:hover img {
+    transform: perspective(1000px) rotate3d(1, 1, 0, 6deg) scale(1.1); /* 3D- en vergroting */
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease-in-out; /* Vloeiende animatie */
+    box-shadow: 0px 15px 40px rgba(229, 89, 131, 0.6); 
+}
+
+
+/* bron van deze stukje code https://www.youtube.com/watch?v=UmaygEDtz9g&list=WL&index=1&t=481s*/
+.image-card::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(224, 112, 153, 0.062);
 }
 
 /* Afbeeldingen binnen de cards */
+
 .image-card img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+
 }
 
 /* Dynamische groottes */

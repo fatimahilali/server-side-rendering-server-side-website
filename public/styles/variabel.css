@@ -3,10 +3,7 @@ body {
     --primary-color: black;
     --secondary-color: yellow;
     --background-color: white;
-    --gradient-start: #f8f8f8;
-    --gradient-end: rgb(243, 164, 200);
-    --border-light: rgb(171, 204, 228);
-    --border-dark: rgb(249, 213, 247);
+
 
     /* Afmetingen */
     --navbar-height: 3rem;
