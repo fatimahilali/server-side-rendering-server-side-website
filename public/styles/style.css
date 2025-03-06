@@ -121,7 +121,7 @@ De navigatie voor mobiel is tijdelijk uitgeschakeld.
 .gallery {
     display: grid;
     grid-template-columns:1fr;
-    /* Mobiel: 2 kolommen */
+    /* Mobiel: 1 kolommen */
     grid-auto-rows: minmax(12rem, auto);
     /* Dynamische rijhoogte */
     gap: 0.75rem;
