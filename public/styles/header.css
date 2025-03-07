@@ -1,0 +1,109 @@
+/* 
+   Algemene stijlen
+   Deze stijlen zorgen voor de basisinstellingen van de website.
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+}
+
+/* 
+   Logo
+   Stijlen voor het logo van de website.
+*/
+.logo img {
+    position: relative;
+    height: var(--logo-height);
+    width: auto;
+    right: 0;
+}
+
+/* Desktop aanpassing voor logo */
+@media (min-width: 1024px) {
+    .logo img {
+        right: 20%;
+    }
+}
+
+/* 
+   Navigatie (Navbar)
+   De navigatie voor mobiel is tijdelijk uitgeschakeld.  
+*/
+
+.navbar {
+    display: none; /* Standaard verborgen op mobiel */
+}
+
+@media (min-width: 1024px) {
+    .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: var(--padding-standard);
+        background-color: var(--background-color);
+        border-bottom: 0.1rem solid var(--primary-color);
+        height: 4rem;
+        width: 100%;
+    }
+
+    /* Navigatielinks op desktop */
+    .nav-links {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        gap: var(--gap-size);
+        align-items: center;
+        padding: 0;
+        font-weight: bold;
+        font-size: var(--font-size-base);
+    }
+}
+
+/* Navigatielinks styling */
+.nav-links a {
+    text-decoration: none;
+    color: var(--primary-color);
+    text-align: center;
+    font-size: var(--font-size-base);
+}
+
+/* 
+   Highlight knop
+   Styling voor de knoppen die visueel moeten opvallen.
+*/
+.highlight {
+    background-color: var(--secondary-color);
+    padding: 0.8rem 0.6rem;
+    font-size: var(--font-size-base);
+    border: 0.1rem solid var(--primary-color);
+    display: inline-block;
+}
+
+/* 
+   Venues link knop
+*/
+.venue-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: var(--font-size-base);
+    font-weight: bold;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+/* 
+   SVG styling voor Venues link knop
+*/
+.venue-link svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
