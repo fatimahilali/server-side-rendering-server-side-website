@@ -22,7 +22,7 @@
 .image-card img {
     width: 100%;
     height: 200px; 
-    border-radius: 5px;
+    border-radius: 8px;
     object-fit: cover; /* Zorgt ervoor dat de afbeelding zich aanpast zonder te rekken */
 }
 
