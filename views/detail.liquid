@@ -1,0 +1,20 @@
+<!-- Sectie voor de details van een specifiek galerijobject -->
+<section class="artwork-detail">
+
+  <!-- Toon de titel van het galerijobject -->
+  <h1>{{ artwork.title }}</h1>
+
+  <!-- Toon de afbeelding van het galerijobject met een dynamische URL uit de API -->
+  <img src="https://fdnd-agency.directus.app/assets/{{ artwork.image }}" alt="{{ artwork.title }}">
+
+  <!-- Controleer of er een 'slug' beschikbaar is en toon deze indien aanwezig -->
+  {% if artwork.slug %}
+    <p>
+      <strong>Slug:</strong>
+      {{ artwork.slug }}
+    </p>
+  {% endif %}
+  <!-- Knop om terug te gaan naar de homepagina -->
+  <a href="/" class="back-button">Terug naar home</a>
+
+</section>

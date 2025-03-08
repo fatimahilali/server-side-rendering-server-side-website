@@ -34,6 +34,27 @@ app.get('/', async function (request, response) {
 
 
 
+
+// bron:https://www.geeksforgeeks.org/how-to-handle-route-parameters-in-express/
+
+// Route om de gedetailleerde informatie van een specifiek galerijobject op te halen op basis van het ID in de URL
+app.get('/detail/:id', async function (request, response) {
+  
+  // Haal het ID van het galerijobject uit de URL-parameters
+  const artworkId = request.params.id; 
+
+  // Maak een API-aanroep naar de externe database om de gegevens van dit specifieke galerijobject op te halen
+  const apiResponse = await fetch(`https://fdnd-agency.directus.app/items/fabrique_art_objects/${artworkId}?fields=title,image,slug`);
+  
+  // Converteer de API-respons naar JSON-formaat
+  const artworkData = await apiResponse.json();
+
+  // Render de detailpagina en stuur de opgehaalde galerijobjectgegevens naar de template
+  response.render('detail.liquid', { artwork: artworkData.data });
+});
+
+
+
 // Maak een POST route voor de index; hiermee kun je bijvoorbeeld formulieren afvangen
 // Hier doen we nu nog niets mee, maar je kunt er mee spelen als je wilt
 app.post('/', async function (request, response) {

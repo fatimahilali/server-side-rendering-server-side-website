@@ -7,8 +7,10 @@
     {% for artwork in artworks %}
       <!-- Elke afbeelding in een lijstitem -->
       <li class="image-card">
-        <!-- Dynamische afbeelding uit de artworks lijst -->
-        <img src="https://fdnd-agency.directus.app/assets/{{ artwork.image }}" alt="Afbeelding uit de galerij">
+        <!-- Link naar de detailpagina van het kunstwerk -->
+        <a href="/detail/{{ artwork.id }}">
+          <img src="https://fdnd-agency.directus.app/assets/{{ artwork.image }}" alt="{{ artwork.title }}">
+        </a>
       </li>
     {% endfor %}
   </ul>
