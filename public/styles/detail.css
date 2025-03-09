@@ -1,0 +1,240 @@
+/* 
+   Hoofdcontainer (Mobile First) 
+*/
+.container {
+  width: 90%;
+  max-width: 1200px;
+  background: var(--background-color);
+  padding: 1.25rem;
+  margin: 1.25rem auto;
+  box-shadow: var(--hover-shadow);
+}
+
+/* 
+   Desktop: Hoofdcontainer 
+*/
+@media (min-width: 1024px) {
+  .container {
+    width: 80%;
+    padding: 2rem;
+  }
+}
+
+/* 
+   Terugknop (Mobile First) 
+*/
+.back-button {
+  background: var(--primary-color);
+  color: var(--background-color);
+  border: none;
+  padding: 0.625rem 0.9375rem;
+  cursor: pointer;
+  margin-bottom: 1.25rem;
+}
+
+/* 
+   Desktop: Terugknop 
+*/
+@media (min-width: 1024px) {
+  .back-button {
+    padding: 0.75rem 1.25rem;
+    font-size: 1.1rem;
+  }
+}
+
+/* 
+   Objectdetail (Mobile First) 
+*/
+.object-detail {
+  text-align: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 1);
+  padding-bottom: 1.25rem;
+}
+
+/* 
+   Desktop: Objectdetail 
+*/
+@media (min-width: 1024px) {
+  .object-detail {
+    display: flex;
+    justify-content: center; 
+    align-items: flex-start; 
+    border-bottom: 1px solid rgba(0, 0, 0, 1); /* Lijn toevoegen onder de afbeelding */
+
+ }
+}
+
+/* 
+   Afbeelding (Mobile First) 
+*/
+.artwork-image {
+  width: 100%;
+  max-width: 37.5rem;
+  display: block;
+  margin: 0 auto;
+}
+
+/* 
+   Desktop: Afbeelding 
+*/
+@media (min-width: 1024px) {
+  .artwork-image {
+    width: 40%;
+    height: 90%;
+    object-fit: cover;
+    object-position: top;
+  }
+}
+
+/* 
+   Museumkop (Mobile First) 
+*/
+.museum-header {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-size);
+  padding: 0.625rem 0;
+  border-top: 1px solid rgba(0, 0, 0, 1);
+  border-bottom: 1px solid rgba(0, 0, 0, 1);
+  margin-top: 0.625rem;
+}
+
+/* 
+   Desktop: Museumkop 
+*/
+@media (min-width: 1024px) {
+  .museum-header {
+    padding: 1rem 0;
+  }
+}
+
+/* 
+   Museum logo (Mobile First) 
+*/
+.museum-header img {
+  width: 1.82rem;
+  height: 1.83rem;
+}
+
+/* 
+   Desktop: Museum logo 
+*/
+@media (min-width: 1024px) {
+  .museum-header img {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+
+/* 
+   Informatiesectie (Mobile First) 
+*/
+.info-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 1.25rem;
+  padding: 15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 1); /* Lijn onderaan de container */
+
+}
+
+/* 
+   Desktop: Informatiesectie 
+*/
+@media (min-width: 1024px) {
+  .info-container {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 1.25rem;
+    align-items: flex-start;
+
+  }
+}
+
+/* 
+   Linkerkolom (Mobile First) 
+*/
+.info-left {
+  width: 100%;
+  padding-right: 0;
+  border-right: 1px solid rgba(0, 0, 0, 1); /* Lijn toevoegen tussen de kolommen */
+
+}
+
+/* 
+   Desktop: Linkerkolom 
+*/
+@media (min-width: 1024px) {
+  .info-left {
+    width: 60%;
+    padding-right: 1.25rem;
+
+  }
+}
+
+/* 
+   Rechterkolom (Mobile First) 
+*/
+.info-right {
+  width: 100%;
+  padding-right: 1.25rem;
+
+}
+
+/* 
+   Desktop: Rechterkolom 
+*/
+@media (min-width: 1024px) {
+  .info-right {
+    width: 40%;
+    padding-left: 1.25rem;
+
+  
+
+  }
+}
+
+/* 
+   Titel (Mobile First) 
+*/
+.info-left h1 {
+  font-size: var(--font-size-heading);
+  margin-bottom: 0.9375rem;
+}
+
+/* 
+   Desktop: Titel 
+*/
+@media (min-width: 1024px) {
+  .info-left h1 {
+    font-size: 1.5rem;
+  }
+}
+
+/* 
+   Tekst (Mobile First) 
+*/
+.info-left p, .info-right p {
+  margin: 0.3125rem 0;
+  font-size: var(--font-size-base);
+}
+
+/* 
+   Desktop: Tekst 
+*/
+@media (min-width: 1024px) {
+  .info-left p, .info-right p {
+    font-size: 1rem;
+  }
+}
+
+/* 
+   Vetgedrukte tekst (Mobile First) 
+*/
+.info-left p strong, .info-right p strong {
+  font-weight: bold;
+}
+
+
+

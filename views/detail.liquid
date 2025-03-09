@@ -1,18 +1,76 @@
-<!-- Sectie voor de details van een specifiek galerijobject -->
-<section class="artwork-detail">
+<!-- Inladen van de header (navbar) via Liquid partials -->
+{% render 'partials/header.liquid' %}
+<!-- Inladen van de css -->
 
-  <!-- Toon de titel van het galerijobject -->
-  <h1>{{ artwork.title }}</h1>
+{% render 'partials/head.liquid' %}
 
-  <!-- Toon de afbeelding van het galerijobject met een dynamische URL uit de API -->
-  <img src="https://fdnd-agency.directus.app/assets/{{ artwork.image }}" alt="{{ artwork.title }}">
 
-  <!-- Controleer of er een 'slug' beschikbaar is en toon deze indien aanwezig -->
-  {% if artwork.slug %}
-    <p>
-      <strong>Slug:</strong>
-      {{ artwork.slug }}
-    </p>
-  {% endif %}
+<section class="detail-artwork">
+  <div class="container">
 
+    <!-- Navigatie met een terug-knop voor gebruiksvriendelijkheid -->
+    <nav aria-label="Pagina-navigatie">
+      <button class="back-button" aria-label="Ga terug naar de vorige pagina">
+        ← BACK
+      </button>
+    </nav>
+
+    <!-- Sectie met het artwork en de afbeelding -->
+    <article class="object-detail">
+      <img
+        class="artwork-image"
+        src="https://fdnd-agency.directus.app/assets/{{ artwork.image }}"
+        alt="Afbeelding van het kunstwerk: {{ artwork.title }}">
+    </article>
+
+
+    <div class="info-container">
+      <!-- Hoofdsectie met informatie over het artwork -->
+      <section class="info-left">
+        <header>
+          <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h1>
+
+          <!-- Informatie over het museum -->
+          <div class="museum-header">
+            <img
+              src="/assets/museum-icon.png"
+              alt="Logo van Museum "
+              width="40"
+              height="40">
+            <p>
+              <strong>Museum of Lorem Ipsum</strong>
+            </p>
+          </div>
+        </header>
+
+        <!-- Beschrijving van het artwork -->
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. 
+          Fusce vitae justo nec justo cursus tincidunt. Curabitur auctor, velit in 
+                              efficitur consectetur, justo purus sollicitudin velit, at volutpat nisl 
+                              nunc non est. Suspendisse potenti. Integer non ligula in magna facilisis 
+                              molestie. Mauris feugiat justo a magna consequat, id luctus lorem efficitur. 
+                              Donec interdum lorem at elit convallis, et tristique sapien molestie. 
+                              Vestibulum scelerisque justo in nunc bibendum, nec efficitur lorem tincidunt. 
+                              Aenean ut elit eget nunc fermentum ultrices. Phasellus at metus eu libero 
+                              dictum ultrices.
+        </p>
+      </section>
+
+      <!-- Extra details over het artwork -->
+      <aside class="info-right">
+        <section class="artwork-details">
+          <h2>Artwork Details</h2>
+          <p>
+            <strong>Titel:</strong>
+            {{ artwork.title }}</p>
+          {% if artwork.slug %}
+            <p>
+              <strong>Slug:</strong>
+              {{ artwork.slug }}</p>
+          {% endif %}
+        </section>
+      </aside>
+    </div>
+  </div>
 </section>
