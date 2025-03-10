@@ -21,6 +21,7 @@
         class="artwork-image"
         src="https://fdnd-agency.directus.app/assets/{{ artwork.image }}"
         alt="Afbeelding van het kunstwerk: {{ artwork.title }}">
+      <div class="artwork-title">{{ artwork.title }}</div>
     </article>
 
 
@@ -47,20 +48,19 @@
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. 
           Fusce vitae justo nec justo cursus tincidunt. Curabitur auctor, velit in 
-                              efficitur consectetur, justo purus sollicitudin velit, at volutpat nisl 
-                              nunc non est. Suspendisse potenti. Integer non ligula in magna facilisis 
-                              molestie. Mauris feugiat justo a magna consequat, id luctus lorem efficitur. 
-                              Donec interdum lorem at elit convallis, et tristique sapien molestie. 
-                              Vestibulum scelerisque justo in nunc bibendum, nec efficitur lorem tincidunt. 
-                              Aenean ut elit eget nunc fermentum ultrices. Phasellus at metus eu libero 
-                              dictum ultrices.
+                    efficitur consectetur, justo purus sollicitudin velit, at volutpat nisl 
+                    nunc non est. Suspendisse potenti. Integer non ligula in magna facilisis 
+                    molestie. Mauris feugiat justo a magna consequat, id luctus lorem efficitur.       
+                    Donec interdum lorem at elit convallis, et tristique sapien molestie. 
+                    Vestibulum scelerisque justo in nunc bibendum, nec efficitur lorem tincidunt. 
+                    Aenean ut elit eget nunc fermentum ultrices. Phasellus at metus eu libero 
+                    dictum ultrices.
         </p>
       </section>
 
       <!-- Extra details over het artwork -->
       <aside class="info-right">
         <section class="artwork-details">
-          <h2>Artwork Details</h2>
           <p>
             <strong>Titel:</strong>
             {{ artwork.title }}</p>

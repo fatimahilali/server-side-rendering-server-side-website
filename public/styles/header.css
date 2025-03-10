@@ -1,6 +1,5 @@
 /* 
-   Algemene stijlen
-   Deze stijlen zorgen voor de basisinstellingen van de website.
+   Algemene stijlen voor de navbar
 */
 
 * {
@@ -79,7 +78,7 @@ body {
    Styling voor de knoppen die visueel moeten opvallen.
 */
 .highlight {
-    background-color: var(--secondary-color);
+    background-color: var(--hilight-color);
     padding: 0.8rem 0.6rem;
     font-size: var(--font-size-base);
     border: 0.1rem solid var(--primary-color);
