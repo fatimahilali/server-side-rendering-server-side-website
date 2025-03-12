@@ -41,6 +41,24 @@ body {
 
 
 
+/* Standaard verbergen op mobiel */
+.menu-text {
+    display: none;
+}
+
+/* Alleen tonen op desktop (1024px en groter) */
+@media (min-width: 1024px) {
+    .menu-text {
+        display: inline-block;
+        font-size: 1rem;
+        font-weight: bold;
+        color: var(--primary-color);
+    }
+}
+
+
+
+
 
 @media (max-width: 1023px) {
 
@@ -233,8 +251,6 @@ body {
 .hamburger:focus {
   outline: 3px solid #ffcc00; 
 }
-
-
 
 
 
