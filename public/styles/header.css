@@ -58,8 +58,6 @@ body {
 
 
 
-
-
 @media (max-width: 1023px) {
 
     .menu-text {
@@ -160,7 +158,6 @@ body {
     }
 }
 
-
 @media (min-width: 1024px) {
     .menu-text {
         font-size: 1rem;
@@ -179,6 +176,8 @@ body {
         background: none;
         border: none;
         padding: 0.5rem 1rem;
+        color: var(--primary-color); 
+
     }
  
 
