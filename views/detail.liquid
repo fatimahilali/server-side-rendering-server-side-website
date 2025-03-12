@@ -1,39 +1,42 @@
-
 <!-- Inladen van de header (navbar) via Liquid partials -->
 {% render 'partials/header.liquid' %}
-<!-- Inladen van de css -->
 
+<!-- Inladen van de CSS -->
 {% render 'partials/head.liquid' %}
 
-   <!-- Navigatie met een terug-knop voor gebruiksvriendelijkheid -->
-   <section class="detail-artwork">
-    <div class="container">
-      <nav>
-        <a href="/" title="Terug naar de homepagina">
+<!-- Navigatie met een terug-knop voor gebruiksvriendelijkheid -->
+<section class="detail-artwork">
+  <div class="container">
+    <nav>
+      <!-- Terugknop naar de homepagina -->
+      <a href="/" title="Terug naar de homepagina">
         <button type="button" class="back-button">
           ← BACK
         </button>
       </a>
-      </nav>
-  
+    </nav>
+
     <!-- Sectie met het artwork en de afbeelding -->
     <article class="object-detail">
+      <!-- Afbeelding van het artwork -->
       <img
-        class="artwork-image"
+      class="artwork-image"
         src="https://fdnd-agency.directus.app/assets/{{ artwork.image }}"
         alt="Afbeelding van het artwork: {{ artwork.title }}">
+      <!-- Titel van het artwork -->
       <div class="artwork-title">{{ artwork.title }}</div>
     </article>
-
 
     <div class="info-container">
       <!-- Hoofdsectie met informatie over het artwork -->
       <section class="info-left">
         <header>
+          <!-- Titel van het artwork -->
           <h1>Portraits Sketched from the Life Since the Year 1793</h1>
 
           <!-- Informatie over het museum -->
           <div class="museum-header">
+            <!-- Museum logo -->
             <img
               src="/assets/museum-icon.png"
               alt="Logo van Museum "
@@ -48,19 +51,24 @@
         <!-- Beschrijving van het artwork -->
         <p>
           Bowl with monochrome luster decoration. The design shows an antelope confronting a long-tailed bird on a background of small chevrons. The kufic inscription on the body of the antelope says: “blessing to its owner.“ Above the antelope, the artist inscribed his name: “work of ‘Ali.“ In the middle of the glazed foot, the word Baraka (blessing) is rendered in kufic script. The initially abstract design style of the Abbasid luster wares developed in the 10th century and particularly in Iraq into a new decorative approach with animal designs. These are usually set on a stippled background. By this time, potters had abandoned polychrome painting in favor of monochrome luster. Here, a single animal or a symmetrical pair was at the center of the design. The change of style may reflect the taste of the new elite formed when the Buyids arrived in Iraq.
-
+        </p>
       </section>
 
       <!-- Extra details over het artwork -->
       <aside class="info-right">
+        <!-- Sectie met details van het artwork -->
         <section class="artwork-details">
           <p>
+            <!-- Titel van het artwork -->
             <strong>Titel:</strong>
-            {{ artwork.title }}</p>
+            {{ artwork.title }}
+          </p>
+          <!-- Controleer of er een slug is en toon deze indien aanwezig -->
           {% if artwork.slug %}
             <p>
               <strong>Slug:</strong>
-              {{ artwork.slug }}</p>
+              {{ artwork.slug }}
+            </p>
           {% endif %}
         </section>
       </aside>
@@ -69,19 +77,24 @@
 </section>
 
 
-<!-- het laatste gedeelte met de 4 images  -->
+<!-- Sectie voor gerelateerde artwork -->
 <section class="related-artworks">
+  <!-- Titel van de sectie -->
   <h2>You may also like</h2>
   <div class="related-container">
+    <!-- Loop door de gerelateerde artwork -->
     {% for related in relatedArtworks %}
       <div class="related-item">
+        <!-- Afbeelding van het artwork -->
         <img src="https://fdnd-agency.directus.app/assets/{{ related.image }}" alt="Afbeelding van {{ related.title }}">
         <p>
+          <!-- Titel van het artwork -->
           <strong>{{ related.title }}</strong>
         </p>
       </div>
     {% endfor %}
   </div>
+  <!-- button voor verrassing -->
   <div class="surprise-button">
     <button type="button">→ SURPRISE ME</button>
   </div>
