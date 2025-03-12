@@ -1,6 +1,6 @@
 <section>
-  <!-- Verborgen koptekst voor toegankelijkheid -->
-  <h2 class="visually-hidden">Galerij van Qatar Museums</h2>
+  <!-- Hoofdtitel voor toegankelijkheid -->
+  <h1 class="visually-hidden">Galerij van Qatar Museums</h1>
 
   <!-- Lijst van galerijafbeeldingen -->
   <ul class="gallery">
@@ -9,7 +9,7 @@
       <li class="image-card">
         <!-- Link naar de detailpagina van het kunstwerk -->
         <a href="/detail/{{ artwork.id }}">
-          <img src="https://fdnd-agency.directus.app/assets/{{ artwork.image }}">
+          <img src="https://fdnd-agency.directus.app/assets/{{ artwork.image }}" alt="{{ artwork.title if artwork.title else 'Afbeelding van gallery' }}">
         </a>
       </li>
     {% endfor %}

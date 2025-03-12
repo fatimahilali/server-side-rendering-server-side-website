@@ -1,11 +1,16 @@
 
 /* 
+   Algemene stijlen voor de gallery-pagina  (home)
+*/
+
+
+/* 
    Afbeeldingen Gallery (Mobile First)
 */
 .gallery {
     display: grid;
     grid-template-columns: 1fr; /* Mobiel: 1 kolom */
-    gap: 0.75rem;
+    gap: var(--gallery-gap);
     max-width: 100%;
     margin: auto;
 }
@@ -18,22 +23,15 @@
     height: auto; 
 }
 
-/* --- Afbeeldingen  voor mobiel --- */
+/* --- Afbeeldingen voor mobiel --- */
 .image-card img {
     width: 100%;
     height: 200px; 
-    border-radius: 8px;
-    object-fit: cover; /* Zorgt ervoor dat de afbeelding zich aanpast zonder te rekken */
+    border-radius: var(--image-border-radius);
+    object-fit: cover;
 }
 
-
-/* 
-  bron:https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-rows
- */
-
-/* 
-   Desktop layout: Styling voor grotere schermen.
-*/
+/* Desktop layout: Styling voor grotere schermen. */
 @media (min-width: 1024px) {
     .gallery {
         display: grid;
@@ -51,7 +49,7 @@
         grid-row: span 2;
     }
 
-    /* Afbeeldingen  voor desktop */
+    /* Afbeeldingen voor desktop */
     .image-card img {
         width: 100%;
         height: 100%;
@@ -60,8 +58,8 @@
 
     /* --- Hover effect --- */
     .image-card:hover {
-        transform: scale(1.05);
-        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+        transform: scale(var(--image-hover-scale));
+        box-shadow: var(--image-hover-shadow);
         width: calc(100% + 40px);
         height: calc(100% + 40px);
         top: -20px;
@@ -77,23 +75,18 @@
         transform: scale(1.07);
     }
 
-    /* bron van deze stukjes code https://www.youtube.com/watch?v=UmaygEDtz9g&list=WL&index=1&t=481s*/
-
-
     /* Niet-gehoverde afbeeldingen vervagen en verkleinen op desktop */
     .gallery:hover .image-card:not(:hover) img {
-        filter: grayscale(50%) blur(1px); /* Maakt afbeelding gedeeltelijk grijs en wazig */
-        transform: scale(0.95); /* Verkleint afbeelding lichtjes */
-        transition: transform 0.4s ease, filter 0.4s ease; /* overgang */
-        
+        filter: var(--image-blur-filter);
+        transform: scale(var(--image-blur-scale));
+        transition: transform 0.4s ease, filter 0.4s ease;
     }
+
     .gallery:hover .image-card:hover img {
         transform: perspective(1000px) rotate3d(1, 1, 0, 6deg) scale(1.1);
         transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.5s ease-in-out;
         box-shadow: 0px 15px 40px rgba(229, 89, 131, 0.5);
     }
-    
-
 
     /* Zorgt ervoor dat de gehoverde afbeelding boven andere elementen ligt */
     .gallery:hover .image-card:hover {
@@ -117,4 +110,17 @@
     border: 0;
 }
 
+/* Link (a) als blok over de hele afbeelding */
+.image-card a {
+    display: block;
+    position: relative; 
+}
 
+/* Stijl voor focus op de link rond de afbeelding */
+.image-card a:focus {
+    outline: 4px solid #ffcc00; 
+    outline-offset: 6px;
+    box-shadow: 0px 0px 15px rgba(255, 204, 0, 0.8);
+    transform: scale(1.05); 
+    transition: all 0.3s ease-in-out;
+}

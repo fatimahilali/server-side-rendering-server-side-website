@@ -31,46 +31,151 @@ body {
     }
 }
 
-/* 
-   Navigatie (Navbar)
-   De navigatie voor mobiel is tijdelijk uitgeschakeld.  
-*/
+    /* Navbar:  voor mobile */
 
 .navbar {
-    display: none; /* Standaard verborgen op mobiel */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
+
+
+
+
+@media (max-width: 1023px) {
+
+    .menu-text {
+        display: none;
+    }
+ 
+    .nav-links {
+        display: none;
+   
+    }
+}
+    /* Navbar:  voor desktop */
 
 @media (min-width: 1024px) {
     .navbar {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: var(--padding-standard);
+        padding: 1rem 2rem;
         background-color: var(--background-color);
         border-bottom: 0.1rem solid var(--primary-color);
         height: 4rem;
         width: 100%;
     }
+}
 
-    /* Navigatielinks op desktop */
-    .nav-links {
-        list-style: none;
+    /* Logo aan de linkerkant */
+
+@media (min-width: 1024px) {
+    .logo {
         display: flex;
-        flex-direction: row;
-        gap: var(--gap-size);
         align-items: center;
-        padding: 0;
-        font-weight: bold;
-        font-size: var(--font-size-base);
+        flex-shrink: 0;
     }
 }
 
-/* Navigatielinks styling */
-.nav-links a {
-    text-decoration: none;
-    color: var(--primary-color);
-    text-align: center;
-    font-size: var(--font-size-base);
+    /* Logo voor mobile */
+
+
+    .logo img {
+        height: 2.5rem;
+    }
+
+
+
+@media (min-width: 1024px) {
+    .logo img {
+        height: 3rem;
+        margin-left: 1rem;
+    }
+}
+    /* Navigatie netjes uitgelijnd en gecentreerd */
+
+@media (min-width: 1024px) {
+    .nav-links {
+        list-style: none;
+        display: flex;
+        flex-grow: 1;
+        justify-content: center;
+        gap: 2rem; 
+        font-weight: bold;
+        font-size: var(--font-size-base);
+        align-items: center; 
+        margin-left: 11.5%;
+    }
+    }
+
+@media (min-width: 1024px) {
+    .nav-links a {
+        text-decoration: none;
+        color: var(--primary-color);
+        display: flex;
+        align-items: center;
+        font-size: var(--font-size-base);
+    }
+}
+    /* Zorgt ervoor dat de TICKETS-knop niet lager staat */
+
+@media (min-width: 1024px) {
+    .highlight {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: yellow;
+        padding: 0.5rem 1rem;
+        font-size: var(--font-size-base);
+        border: 0.1rem solid var(--primary-color);
+    }
+}
+    /* MENU en de hamburger netjes rechts uitlijnen */
+
+@media (min-width: 1024px) {
+    .menu-container {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-left: 1%;
+    }
+}
+
+
+@media (min-width: 1024px) {
+    .menu-text {
+        font-size: 1rem;
+        font-weight: bold;
+        color: var(--primary-color);
+        display: flex;
+        align-items: center;
+    }
+}
+  
+    /* hamburger voor mobile */
+    .hamburger {
+        font-size: 2rem;
+        cursor: pointer;
+        display: block; 
+        background: none;
+        border: none;
+        padding: 0.5rem 1rem;
+    }
+ 
+
+    /* hamburger voor desktop */
+
+    @media (min-width: 1024px) {
+    .hamburger {
+        font-size: 2rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        background: none;
+        border: none;
+        padding: 0.5rem;
+    }
 }
 
 /* 
@@ -105,6 +210,40 @@ body {
     width: 1.5rem;
     height: 1.5rem;
 }
+
+
+.member-link {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: var(--font-size-base);
+    text-decoration: none;
+    color:var(--primary-color);
+    gap: 1%; 
+}
+
+.member-link img {
+    width: 1rem; 
+    height: auto;
+}
+
+
+/*focus voor toegankelijkheid  */
+.nav-links a:focus,
+.hamburger:focus {
+  outline: 3px solid #ffcc00; 
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 

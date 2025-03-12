@@ -2,8 +2,6 @@
    Algemene stijlen voor de detail-pagina 
 */
 
-
-
 /* 
    Hoofdcontainer (Mobile First) 
 */
@@ -12,7 +10,6 @@
 	max-width: 1200px;
 	padding: 4%;
 	margin: 4% auto;
-	border-radius: 10px;
 	background: var(--background-light);
 	box-shadow: var(--shadow);
   }
@@ -38,7 +35,6 @@
 	cursor: pointer;
 	font-size: 1rem; 
 	transition: var(--transition);
-	border-radius: 10px;
   }
   
   
@@ -48,8 +44,7 @@
   @media (min-width: 1024px) {
 	.back-button {
 	  padding: 1.2% 2.5%;
-	  font-size: 1rem;
-	  border-radius: 10px;
+	  font-size:var(--font-size-base);
 	}
   }
   
@@ -68,19 +63,10 @@
 	overflow: hidden;
 	width: 100%;
 	aspect-ratio: 16 / 9;
-	border-radius: 5px;
 	box-shadow: var(--shadow);
   }
   
-    /* 
-	 Desktop: Objectdetail 
-  */
-  @media (min-width: 1024px) {
-	.object-detail {
-	  border-radius: 10px;
-	}
-  }
-
+  
 
   /* 
 	 Afbeelding 
@@ -117,7 +103,7 @@
 	color: var(--text-light);
 	text-align: center;
 	padding: 2% 5%;
-	font-size: 1rem; 
+	font-size: var(--font-size-base);
 	font-weight: bold;
 	border-radius: 15px;
 	opacity: 0;
@@ -125,11 +111,11 @@
 	z-index: 3;
   }
   
-  
-  
+
+
   @media (min-width: 1024px) {
 	.artwork-title {
-	  font-size: 1rem;
+	  font-size:var(--font-size-base);
 	  padding: 1% 3%;
 	}
   }
@@ -163,30 +149,29 @@
   }
   
 
-  /* 
-	 Desktop: Informatiesectie 
-  */
-  @media (min-width: 1024px) {
+/* 
+   Desktop: Informatiesectie 
+*/
+@media (min-width: 1024px) {
 	.info-container {
 	  flex-direction: row;
 	  justify-content: space-between;
 	  border-top: 1px solid var(--border-light);
 	}
-  }
   
+  }
   
    /* 
 	 Linkerkolom desktop 
   */
-  @media (min-width: 1024px) {
-	.info-left {
-	  width: 60%;
-	  border-right: 1px solid var(--border-light);
-	  padding-right: 4%;
-	}
+/* Desktop: Maak beide kolommen 50% breed */
+@media (min-width: 1024px) {
+  .info-left {
+      width: 50%;
+      border-right: 1px solid var(--border-light);
+      padding-right: 4%;
   }
-  
-  
+}
 /* 
    Rechterkolom (Mobile First) 
 */
@@ -195,19 +180,23 @@
   border-top: 1px solid rgb(211, 205, 205); /* Lijn boven "Artwork Details" */
   padding-top: 1rem; 
   margin-top: 1rem; 
+  border-bottom: 1px solid rgb(211, 205, 205); /* Lijn onder "Artwork Details" */
 }
 
   
    /* 
-	 Desktop: Linkerkolom 
+	 Desktop: rechter kolom 
   */
   @media (min-width: 1024px) {
-	.info-right {
-	  width: 40%;
-	  padding-left: 4%;
-     border-top: none;/* Verwijder de border-top op desktop */
-	}
+    .info-right {
+      width: 50%;
+      padding-left: 4%;
+      border-top: none;
+      border-bottom: none;
+      margin-right: 0; /* Verwijder de extra margin */
   }
+}
+
   
     /* 
 	 Titel (Mobile First) 
@@ -217,34 +206,42 @@
 	margin-bottom: 3%;
   }
   
-    /* 
+   /* 
 	 Desktop: Titel 
   */
-  @media (min-width: 1024px) {
-	.info-left h1 {
-	  font-size: 2rem;
-	  max-width: 600px;
-	  line-height: 1.2;
+
+	@media (min-width: 1024px) {
+		.info-left h1 {
+			font-size: 1.5rem; 
+			max-width: 350px; 
+			line-height: 1.4; 
+			font-weight: 300; 
+			font-family: "Arial", sans-serif; 
+			word-break: break-word; 
+			text-transform: uppercase; 
+		}
 	}
-  }
+	
   
-    /* 
+  /* 
 	 Tekst (Mobile First) 
   */
   .info-left p,
   .info-right p {
-	font-size: 1rem;
+	font-size:var(--font-size-base);
 	line-height: 1.5;
 	margin: 2% 0;
+	
   }
   
-    /* 
+  /* 
 	 Desktop: Tekst 
   */
   @media (min-width: 1024px) {
 	.info-left p,
 	.info-right p {
-	  font-size: 1rem;
+	  font-size: var(--font-size-base);
+	  
 	}
   }
   
@@ -281,3 +278,177 @@
   }
 
 
+  /* Algemene stijlen voor mobiel (standaard) */
+.related-artworks {
+    display: block;
+    margin-top: 20%;
+    padding: 1rem 0;
+}
+
+/* Desktop:  layout  */
+@media (min-width: 1024px) {
+    .related-artworks {
+        margin-top: 10%;
+        padding: 1.5rem 0;
+    }
+}
+
+/* Stijl voor de titel binnen de gerelateerde sectie */
+.related-artworks h2 {
+    font-size: var(--font-size-heading);
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+    font-weight: 300;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    letter-spacing: 0.02rem;
+    text-align: left; /* Tekst links uitlijnen */
+    padding-left: 1rem; /* Ruimte aan de linkerkant */
+}
+
+/* Desktop: titel  */
+@media (min-width: 1024px) {
+    .related-artworks h2 {
+        margin-bottom: 1rem;
+        line-height: 1.4;
+    }
+}
+
+/* Container voor gerelateerde items */
+.related-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+}
+
+/* Desktop: container flex */
+@media (min-width: 1024px) {
+    .related-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 1rem;
+        align-items: stretch;
+    }
+}
+
+/* Individuele item stijl binnen de gerelateerde sectie */
+.related-item {
+    display: flex;
+    flex-direction: column;
+    border: 0.1rem solid #ddd;
+    background: var(--background-color);
+}
+
+/* Desktop:   */
+@media (min-width: 1024px) {
+    .related-item {
+        flex: 1;
+    }
+}
+
+/* Stijl voor afbeeldingen binnen de gerelateerde items */
+.related-item img {
+    width: 100%;
+    height: 7rem; /* Kleiner voor mobiel */
+    object-fit: cover;
+    display: block;
+}
+
+
+/* Hover-effect: lichte vergroting en schaduw */
+.related-item img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* Desktop: specifieke hoogtes voor variatie */
+  .related-item:nth-child(1) img {
+      height: 6rem;
+  }
+  .related-item:nth-child(2) img {
+      height: 9rem;
+  }
+  .related-item:nth-child(3) img {
+      height: 5rem;
+  }
+  .related-item:nth-child(4) img {
+      height: 7rem;
+  }
+
+
+/* Desktop: specifieke hoogtes voor variatie */
+@media (min-width: 1024px) {
+    .related-item:nth-child(1) img {
+        height: 16rem;
+    }
+    .related-item:nth-child(2) img {
+        height: 11rem;
+    }
+    .related-item:nth-child(3) img {
+        height: 13.75rem;
+    }
+    .related-item:nth-child(4) img {
+        height: 17.5rem;
+    }
+}
+
+/* Stijl voor tekst binnen de gerelateerde items */
+.related-item p {
+    padding: 0.5rem;
+    font-size: 0.75rem; 
+    font-weight: normal;
+    background: var(--background-color);
+    text-align: center;
+}
+
+/* Desktop: tekst groter */
+@media (min-width: 1024px) {
+    .related-item p {
+        padding: 1rem;
+        font-size: var(--font-size-base);
+        display: flex;
+        align-items: center;
+    }
+}
+
+/* de tekst binnen de gerelateerde items als blok */
+.related-item strong {
+    display: block;
+    font-size: 0.85rem; /* Kleinere titels */
+    font-weight: bold;
+}
+
+/* Desktop:  titel iets groter */
+@media (min-width: 1024px) {
+    .related-item strong {
+        font-size: var(--font-size-base);
+    }
+}
+
+/* Verberg de "Surprise me" knop op mobiel */
+.surprise-button {
+    display: none;
+}
+
+/* Desktop: toon de "Surprise me" knop */
+@media (min-width: 1024px) {
+    .surprise-button {
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 1.5rem;
+    }
+
+    .surprise-button button {
+        padding: 0.75rem 1.5rem;
+        border: 0.1rem solid var(--primary-color);
+        background: var(--background-color);
+        font-size: var(--font-size-base);
+        cursor: pointer;
+    }
+
+    .surprise-button button:hover {
+        background: #f5f5f5;
+    }
+}

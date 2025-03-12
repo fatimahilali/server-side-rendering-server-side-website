@@ -1,0 +1,33 @@
+  <!-- bron:backend opdracht -->
+  <!-- bron: https://tenor.com/nl/view/lost-af-lost-wen-lost-lost-sign-doug-gif-5731128862225665906 -->
+
+
+<!-- Inladen van de CSS en andere head-elementen via een Liquid-partial -->
+{% render 'partials/head.liquid' %}
+
+  <body class="error-body">
+  <!-- Hoofdinhoud van de foutpagina -->
+  <main class="error-container">
+
+    <!-- Afbeelding die de fout visueel weergeeft -->
+    <img
+    src="https://media1.tenor.com/m/T4kPVdrzD3IAAAAd/lost-af-lost.gif"
+      alt="Een verward persoon dwaalt rond - 404 pagina niet gevonden"
+      class="error-image">
+
+    <!-- Hoofdtitel die aangeeft dat de pagina niet gevonden is -->
+    <h1 class="error-title">404 - Pagina niet gevonden</h1>
+
+    <!-- Subtitel met een vriendelijke melding -->
+    <h2 class="error-subtitle">Oops! Looks like you're lost...</h2>
+
+    <!-- Korte uitleg over de fout en een call-to-action -->
+    <p class="error-text">Je hebt een verkeerde afslag genomen op het internet. Laten we je terug naar huis brengen!</p>
+
+    <!-- Link om de gebruiker terug naar de homepage te sturen -->
+
+    <a href="/" class="error-link">Take me home 🏠</a>
+
+
+  </main>
+</body>

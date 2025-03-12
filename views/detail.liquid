@@ -1,26 +1,27 @@
+
 <!-- Inladen van de header (navbar) via Liquid partials -->
 {% render 'partials/header.liquid' %}
 <!-- Inladen van de css -->
 
 {% render 'partials/head.liquid' %}
 
-
-<section class="detail-artwork">
-  <div class="container">
-
-    <!-- Navigatie met een terug-knop voor gebruiksvriendelijkheid -->
-    <nav aria-label="Pagina-navigatie">
-      <button class="back-button" aria-label="Ga terug naar de vorige pagina">
-        ← BACK
-      </button>
-    </nav>
-
+   <!-- Navigatie met een terug-knop voor gebruiksvriendelijkheid -->
+   <section class="detail-artwork">
+    <div class="container">
+      <nav>
+        <a href="/" title="Terug naar de homepagina">
+        <button type="button" class="back-button">
+          ← BACK
+        </button>
+      </a>
+      </nav>
+  
     <!-- Sectie met het artwork en de afbeelding -->
     <article class="object-detail">
       <img
         class="artwork-image"
         src="https://fdnd-agency.directus.app/assets/{{ artwork.image }}"
-        alt="Afbeelding van het kunstwerk: {{ artwork.title }}">
+        alt="Afbeelding van het artwork: {{ artwork.title }}">
       <div class="artwork-title">{{ artwork.title }}</div>
     </article>
 
@@ -29,7 +30,7 @@
       <!-- Hoofdsectie met informatie over het artwork -->
       <section class="info-left">
         <header>
-          <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h1>
+          <h1>Portraits Sketched from the Life Since the Year 1793</h1>
 
           <!-- Informatie over het museum -->
           <div class="museum-header">
@@ -46,16 +47,8 @@
 
         <!-- Beschrijving van het artwork -->
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. 
-          Fusce vitae justo nec justo cursus tincidunt. Curabitur auctor, velit in 
-                    efficitur consectetur, justo purus sollicitudin velit, at volutpat nisl 
-                    nunc non est. Suspendisse potenti. Integer non ligula in magna facilisis 
-                    molestie. Mauris feugiat justo a magna consequat, id luctus lorem efficitur.       
-                    Donec interdum lorem at elit convallis, et tristique sapien molestie. 
-                    Vestibulum scelerisque justo in nunc bibendum, nec efficitur lorem tincidunt. 
-                    Aenean ut elit eget nunc fermentum ultrices. Phasellus at metus eu libero 
-                    dictum ultrices.
-        </p>
+          Bowl with monochrome luster decoration. The design shows an antelope confronting a long-tailed bird on a background of small chevrons. The kufic inscription on the body of the antelope says: “blessing to its owner.“ Above the antelope, the artist inscribed his name: “work of ‘Ali.“ In the middle of the glazed foot, the word Baraka (blessing) is rendered in kufic script. The initially abstract design style of the Abbasid luster wares developed in the 10th century and particularly in Iraq into a new decorative approach with animal designs. These are usually set on a stippled background. By this time, potters had abandoned polychrome painting in favor of monochrome luster. Here, a single animal or a symmetrical pair was at the center of the design. The change of style may reflect the taste of the new elite formed when the Buyids arrived in Iraq.
+
       </section>
 
       <!-- Extra details over het artwork -->
@@ -72,5 +65,24 @@
         </section>
       </aside>
     </div>
+  </div>
+</section>
+
+
+<!-- het laatste gedeelte met de 4 images  -->
+<section class="related-artworks">
+  <h2>You may also like</h2>
+  <div class="related-container">
+    {% for related in relatedArtworks %}
+      <div class="related-item">
+        <img src="https://fdnd-agency.directus.app/assets/{{ related.image }}" alt="Afbeelding van {{ related.title }}">
+        <p>
+          <strong>{{ related.title }}</strong>
+        </p>
+      </div>
+    {% endfor %}
+  </div>
+  <div class="surprise-button">
+    <button type="button">→ SURPRISE ME</button>
   </div>
 </section>

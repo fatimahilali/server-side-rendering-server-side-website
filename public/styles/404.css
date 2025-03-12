@@ -1,0 +1,71 @@
+
+/* Error pagina */
+.error-body {
+    margin: 0;
+    padding: 0;
+    background: var(--error-bg-color);
+    font-family: 'Arvo', serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+/* Container voor de foutmelding */
+.error-container {
+    position: relative;
+    max-width: 37.5rem;
+    padding: 1.25rem;
+    background: var(--error-container-bg);
+    border-radius: 0.625rem;
+    box-shadow: var(--error-container-shadow);
+}
+/* Afbeelding van de error */
+.error-image {
+    max-width: 80%;
+    height: auto;
+}
+
+/* Titel van de errorpagina */
+.error-title {
+    font-size: 2rem;
+    color: var(--error-title-color);
+    margin: 0.625rem 0;
+}
+
+/* Subtitel van de errorpagina */
+.error-subtitle {
+    font-size: 1.5rem;
+    color: var(--error-subtitle-color);
+}
+
+/* Algemene tekst van de errorpagina */
+.error-text {
+    font-size: var(--font-size-base);
+    color: var(--primary-color);
+    margin-bottom: 1.25rem;
+}
+
+/* Stijl voor de terugknop/link */
+.error-link {
+    display: inline-block;
+    padding: 0.625rem 1.25rem;
+    background:rgb(173, 2, 2);
+    color: var(--text-light);
+    text-decoration: none;
+    border-radius: 0.3125rem;
+    font-weight: bold;
+    transition: var(--transition);
+}
+
+/* Hover-effect voor de foutpagina-link knop */
+.error-link:hover {
+    background: var(--error-button-hover-bg);
+}
+
+/* Focusstijl voor de foutpagina-link knop */
+.error-link:focus {
+    outline: var(--error-focus-outline);
+    background-color: var(--error-focus-bg);
+}

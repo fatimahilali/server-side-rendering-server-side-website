@@ -22,6 +22,8 @@ app.engine('liquid', engine.express());
 app.set('views', './views')
 
 
+
+
 // Route-handler voor de hoofdpagina ('/')
 app.get('/', async function (request, response) {
   // Haal de data op van de Directus API
@@ -34,25 +36,24 @@ app.get('/', async function (request, response) {
 
 
 
-
 // bron:https://www.geeksforgeeks.org/how-to-handle-route-parameters-in-express/
 
-// Route om de gedetailleerde informatie van een specifiek galerijobject op te halen op basis van het ID in de URL
+
 app.get('/detail/:id', async function (request, response) {
-  
-  // Haal het ID van het galerijobject uit de URL-parameters
   const artworkId = request.params.id; 
 
-  // Maak een API-aanroep naar de externe database om de gegevens van dit specifieke galerijobject op te halen
+  // Haal de specifieke artwork data op
   const apiResponse = await fetch(`https://fdnd-agency.directus.app/items/fabrique_art_objects/${artworkId}?fields=title,image,slug`);
-  
-  // Converteer de API-respons naar JSON-formaat
   const artworkData = await apiResponse.json();
 
-  // Render de detailpagina en stuur de opgehaalde galerijobjectgegevens naar de template
-  response.render('detail.liquid', { artwork: artworkData.data });
-});
+  // Haal vier gerelateerde kunstwerken op
+  const relatedResponse = await fetch(`https://fdnd-agency.directus.app/items/fabrique_art_objects?limit=4&fields=title,image,slug`);
+  const relatedData = await relatedResponse.json();
 
+  // Render de pagina en stuur de opgehaalde data mee
+  response.render('detail.liquid', { artwork: artworkData.data, relatedArtworks: relatedData.data
+  });
+});
 
 
 
@@ -75,4 +76,11 @@ app.listen(app.get('port'), function () {
   // Toon een bericht in de console en geef het poortnummer door
   console.log(`Application started on http://localhost:${app.get('port')}`)
 })
+
+
+// 404-foutpagina : bron :  (backend opdracht)
+app.use((req, res) => {
+  res.status(404).render('404.liquid',);
+});
+
 
