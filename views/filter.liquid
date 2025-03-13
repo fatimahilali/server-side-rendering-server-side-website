@@ -1,0 +1,17 @@
+{% for artwork in assignment %}
+  <!-- Titel van het kunstwerk in hoofdletters -->
+  <h2>{{ artwork.title | upcase }}</h2>
+
+  <!-- Originele titel zonder filter -->
+  <h3>{{ artwork.title }}</h3>
+
+  <!-- Normale titel zonder filters, alles in kleine letters -->
+  <p>{{ artwork.title | downcase }}</p>
+
+  <!-- Titel met de eerste letter van elk woord in hoofdletters -->
+  <p>{{ artwork.title | capitalize }}</p>
+
+  <!-- de eerste letter van elk woord wordt omgezet naar een hoofdletter -->
+  <p>{{ artwork.title | titleize }}</p>
+
+{% endfor %}

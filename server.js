@@ -59,6 +59,16 @@ app.get('/detail/:id', async function (request, response) {
 
 
 
+//Opdracht filteren
+app.get('/filter', async function (request, response) {
+  const apiResponse = await fetch('https://fdnd-agency.directus.app/items/fabrique_art_objects');
+  const apiResponseJSON = await apiResponse.json(); 
+
+  response.render("filter.liquid", { assignment: apiResponseJSON.data });
+});
+
+
+
 // Maak een POST route voor de index; hiermee kun je bijvoorbeeld formulieren afvangen
 // Hier doen we nu nog niets mee, maar je kunt er mee spelen als je wilt
 app.post('/', async function (request, response) {
@@ -78,9 +88,10 @@ app.listen(app.get('port'), function () {
 })
 
 
+
+
 // 404-foutpagina : bron :  (backend opdracht)
 app.use((req, res) => {
-  res.status(404).render('404.liquid',);
+  return res.status(404).render('404.liquid',);
 });
-
 
